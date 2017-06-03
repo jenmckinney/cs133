@@ -1,0 +1,416 @@
+#-------------------------------------------------------------------------------
+# Name:        Lab 6
+# Purpose:	   Lists
+#
+# Author:      Jen McKinney
+#
+# Created:     30/05/2017
+# Copyright:   (c) Jen 2017
+#-------------------------------------------------------------------------------
+
+##these exercises were pretty easy after i spent quite a bit of time trying to figure out the password generator program.
+
+##i enjoyed these exercises. i will say that i am having a bit of trouble conceptualizing "item for item in list if x" but i think that will come in time. this was a good experience in really understanding what a for loop can do, and i feel like everything is really clicking. this is fun!
+
+##chapter 10 exercise 15
+
+##using append
+myList=[]
+myList.append(76)		##appending items to list, one by one
+myList.append(92.3)
+myList.append("hello")
+myList.append(True)
+myList.append(4)
+myList.append(76)
+
+print(myList)
+
+##using concatenate
+a=76
+b=92.3
+c="hello"
+d=True
+e=4
+
+myList=[a,b,c,d,e,a]		##concatenating the items
+
+print(myList)
+
+#-------------------------------------------------------------------------------
+# exercise 16
+#-------------------------------------------------------------------------------
+
+myList=[]
+myList.append(76)
+myList.append(92.3)
+myList.append("hello")
+myList.append(True)
+myList.append(4)
+myList.append(76)
+
+print(myList)
+
+myList.append("apple")			##manipulating lists in various ways
+myList.insert(3,"cat")			##using list methods
+myList.insert(0,99)
+
+print(myList.index("hello"))
+
+print(myList.count(76))
+
+myList.remove(76)
+print(myList)
+
+myList.pop(myList.index(True))
+print(myList)
+
+#-------------------------------------------------------------------------------
+# exercise 17
+#-------------------------------------------------------------------------------
+
+import random
+
+def createList(mn,mx,sz):
+    """This function creates a list from a given minimum, maximum, and size."""
+    newList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        newList.append(random.randrange(mn,mx))
+    return newList
+
+def average(l):
+    """This function calculates the average number in a given list."""
+    sum=0
+    for ii in l:
+        sum+=ii			##calculates the sum of all numbers
+    average=sum/(len(l))		##calculates average
+    return average
+
+##min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+##max=int(input("What is the highest number in the range?"))
+##size=int(input("And how many numbers should be in the list?"))
+min=1
+max=100
+size=8
+
+list=createList(min,max,size)
+print(list)
+print("The average number of this list is "+str(average(list))+".")
+
+#-------------------------------------------------------------------------------
+# random list with 3 parameters
+#-------------------------------------------------------------------------------
+
+import random
+
+def randList(s,l,sz):
+    """This function generates a list of random numbers of a given size and range."""
+    randomList=[]
+    if s<l:						##determines which given numbers are larger
+        for i in range(sz):
+            randomList.append(random.randint(s,l))
+        return randomList
+    else:
+        for i in range(sz):
+            randomList.append(random.randint(l,s))
+        return randomList
+
+##min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+##max=int(input("What is the highest number in the range?"))
+##size=int(input("And how many numbers should be in the list?"))
+min=1
+max=100
+size=8
+
+list=randList(min,max,size)
+##print(list)
+print("Your random number list is "+str(list)+".")
+
+#-------------------------------------------------------------------------------
+# exercise 18
+#-------------------------------------------------------------------------------
+
+import random
+
+def createList(mn,mx,sz):
+    """This function creates a list from a given minimum, maximum, and size."""
+    newList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        newList.append(random.randrange(mn,mx))
+    return newList
+
+def maxList(l):
+    """This function determines the maximum number in a given list."""
+    maxNum=0
+    for ii in l:
+        if ii>maxNum:
+##            print(maxNum)
+            maxNum=ii
+    return maxNum
+
+##min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+##max=int(input("What is the highest number in the range?"))
+##size=int(input("And how many numbers should be in the list?"))
+min=1
+max=100
+size=8
+
+list=createList(min,max,size)
+print(list)
+print("The highest number in this list is "+str(maxList(list))+".")
+
+#-------------------------------------------------------------------------------
+# minimum number in a random list
+#-------------------------------------------------------------------------------
+
+import random
+
+def minList(l,hpn):
+    """This function returns the minimum number in a given list."""
+    minNum=hpn
+    for ii in l:
+        print(ii)		##tests for minimum number
+        if ii<minNum:
+##            print(minNum)
+            minNum=ii
+    return minNum
+
+def createList(mn,mx,sz):
+    testList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        testList.append(random.randrange(mn,mx))
+    return testList
+
+min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+max=int(input("What is the highest number in the range?"))
+size=int(input("And how many numbers should be in the list?"))
+
+list=createList(min,max,size)
+print(list)
+print("The minimum number in this list is "+str(minList(list,max))+".")
+
+#-------------------------------------------------------------------------------
+# exercise 20
+#-------------------------------------------------------------------------------
+
+import random
+
+def createList(mn,mx,sz):
+    """This function creates a list from a given minimum, maximum, and size."""
+    newList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        newList.append(random.randrange(mn,mx))
+    return newList
+
+def oddList(l):
+    """This function counts the number of odd numbers in a given list."""
+    count=0
+    for i in l:
+        if i%2!=0:				##testing for oddness
+            count+=1
+    return count
+
+min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+max=int(input("What is the highest number in the range?"))
+size=int(input("And how many numbers should be in the list?"))
+
+list=createList(min,max,size)
+print(list)
+print("The number of odd numbers in this list is "+str(oddList(list))+".")
+
+#-------------------------------------------------------------------------------
+# exercise 21
+#-------------------------------------------------------------------------------
+
+import random
+
+def createList(mn,mx,sz):
+    """This function creates a list from a given minimum, maximum, and size."""
+    newList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        newList.append(random.randrange(mn,mx))
+    return newList
+
+def evenSum(l):
+    """This function sums the even numbers in a given list."""
+    sum=0
+    for i in l:
+        if i%2==0:				##test for evenness
+            sum+=i
+    return sum
+
+min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+max=int(input("What is the highest number in the range?"))
+size=int(input("And how many numbers should be in the list?"))
+
+list=createList(min,max,size)
+print(list)
+print("The sum of the even numbers in this list is "+str(evenSum(list))+".")
+
+#-------------------------------------------------------------------------------
+# exercise 22
+#-------------------------------------------------------------------------------
+
+import random
+
+def createList(mn,mx,sz):
+    """This function creates a list from a given minimum, maximum, and size."""
+    newList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        newList.append(random.randrange(mn,mx))
+    return newList
+
+def negativeSum(l):
+    """This function sums the negative numbers in a given list."""
+    sum=0
+    for i in l:
+        if i<0:					##tests for negativity. i could probably do "i for i in l if l[i]<0"?
+            sum+=i
+    return sum
+
+min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+max=int(input("What is the highest number in the range?"))
+size=int(input("And how many numbers should be in the list?"))
+
+list=createList(min,max,size)
+print(list)
+print("The sum of the negative numbers in this list is "+str(negativeSum(list))+".")
+
+#-------------------------------------------------------------------------------
+# exercise 24 (a better way)
+#-------------------------------------------------------------------------------
+
+import random
+
+def createList(mn,mx,sz):
+    """This function creates a list from a given minimum, maximum, and size."""
+    newList=[]
+    if mn<mx:
+        minNum=mn
+    else:
+        maxNum=mx
+    for i in range(sz):
+        newList.append(random.randrange(mn,mx))
+    return newList
+
+def sumTo(l):
+    ts=0
+    for ti in l:
+        if ti%2!=0:
+            ts+=ti
+        else:
+            return ts
+    return ts
+
+min=int(input("Let's create a random number list! What is the lowest number in the range?"))
+max=int(input("What is the highest number in the range?"))
+size=int(input("And how many numbers should be in the list?"))
+
+list=createList(min,max,size)
+print(list)
+print("The sum of the odd numbers before the first even number in this list is "+str(sumTo(list))+".")
+
+#-------------------------------------------------------------------------------
+# exercise 24 (how i did this on my own before class)
+#-------------------------------------------------------------------------------
+
+import random
+
+randomList=[]					##creates a random list
+for i in range(100):
+    randomList.append(random.randint(0,1000))
+
+##print(randomList)
+
+for ii in range(len(randomList)):
+    if randomList[ii]%2==0:
+        randomList[ii]=True
+
+##print(randomList)
+
+def preEven(l):
+	"""This function sums the odd numbers before the first even number in a given list."""
+    sum=0
+    for i in range(randomList.index(True)):
+        sum=sum+l[i]
+    return sum
+
+print(preEven(randomList))
+
+#-------------------------------------------------------------------------------
+# exercise 23
+#-------------------------------------------------------------------------------
+import string
+
+def countWords(l):
+    """This function counts the number of 5-letter words in a given block of text."""
+    fiveWords=[item for item in l if len(item)==5]
+    return fiveWords
+
+def createWordList(wl):
+    """This function creates a list of words from a given text string."""
+    alph=list(string.ascii_letters)
+    num=list(string.digits)
+    wds=wl.split()
+    for wi in wds:
+        if wi[0] in num:
+            wds.remove(wi)
+        elif wi[-1] not in alph:
+            wds[wds.index(wi)]=wi[:-1]
+    return wds
+
+def removeDuplicates(cwl):
+    """This function removes duplicates from a given list."""
+    truncatedList=[]
+    for w in cwl:
+        if w not in truncatedList:
+            truncatedList.append(w)
+    return truncatedList
+
+text=input("Please enter a string of text and I will make a list and count all of the 5-letter words.")
+##text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+
+textInput=createWordList(text)
+output=countWords(textInput)
+uniques=removeDuplicates(output)
+
+if len(output)==1:
+    print("There is",len(output),"5-letter word in your text, and it is:")
+    for t in output:
+        print(t)
+elif len(output)==0:
+    print("There are no 5-letter words in your text.")
+else:
+    print("There are",len(output),"5-letter words in your text, and they are:")
+    for t in output:
+        print(t)
+    print()
+    print("BUT WAIT!")
+    print()
+    print("There are",len(uniques),"unduplicated 5-letter words in your text, and they are:")
+    for d in uniques:
+        print(d)
+
