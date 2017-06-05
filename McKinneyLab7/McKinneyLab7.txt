@@ -1,0 +1,25 @@
+#-------------------------------------------------------------------------------
+# Name:        module1
+# Purpose:
+#
+# Author:      Student
+#
+# Created:     05/06/2017
+# Copyright:   (c) Student 2017
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+
+##exercise 1
+
+def studentData():
+    fh=open("studentdata.txt","r")
+    for line in fh:
+        values=line.split()
+##        print(values)
+        if len(values[1:])>6:
+            print(values[0].capitalize())
+    fh.close()
+
+
+print("The following students have more than 6 quiz scores:")
+print(studentData())
