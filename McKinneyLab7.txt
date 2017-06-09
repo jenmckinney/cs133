@@ -26,28 +26,59 @@ print(studentData())
 
 ##exercise 2
 
-fh=open("studentdata.txt","r")
-for line in fh:
-    print(line,type(line))
-    items=line.split()
-    print(line,type(items))
-    average=sum(int(line) for line in items[1:])/len(items[1:])
-    print(items[0].capitalize()+"'s average is "+str(round(average,2))+".")
+import string
 
-fh.close()
+def dataAverage():
+    """This function returns a printed record of every student's average scores."""
+    fh=open("studentdata.txt","r")
+    for line in fh:
+    ##    print(line,type(line))
+        items=line.split()
+    ##    print(line,type(items))
+        average=sum(int(line) for line in items[1:])/len(items[1:])
+        print(items[0].capitalize()+"'s average is "+str(round(average,2))+".")
+    fh.close()
+
+dataAverage()
 
 ##exercise 3
 
-f = open("studentdata.txt", "r")
+import string
+
+def dataMinMax():
+    f=open("studentdata.txt", "r")
+    print("Name\t\tMinimum\t\tMaximum")
+    print("_____\t\t_______\t\t_______")
+    for aline in f:
+        items = aline.split()
+        name=items.pop(0)
+        itemList=[int(number) for number in items]
+        print(name.capitalize(),'\t','\t'," ",str(min(itemList)),'\t','\t',str(max(itemList)))
+    f.close()
+
+dataMinMax()
+
+##exercise 5
+
+import turtle
+
+beep=turtle.Turtle()
+wn=turtle.Screen()
+wn.setworldcoordinates(-300, -300, 300, 300)
+
+f=open("mystery.txt","r")
 
 for aline in f:
-    items = aline.split()
-    name=items.pop(0)
-    list=[]
-    for i in items:
-        num=[int(items[i]) for i in items]
-        list.append(num)
-    print(name,"max is",max(list),"min is",min(list))
-##    print(name, "max is", max(int(items[])), "min is", min(int(items[])))
+    items=aline.split()
+    if items[0]=='UP':
+        beep.penup()
+    elif items[0]=='DOWN':
+        beep.pendown()
+    else:
+        coord=[int(number) for number in items]
+        x=coord[0]
+        y=coord[1]
+        beep.goto(x,y)
 
 f.close()
+wn.exitonclick()
