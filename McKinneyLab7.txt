@@ -1,17 +1,24 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
+# Name:        Lab 7
+# Purpose:	   Files
 #
-# Author:      Student
+# Author:      Jen McKinney
 #
-# Created:     05/06/2017
-# Copyright:   (c) Student 2017
-# Licence:     <your licence>
+# Created:     06/09/17
 #-------------------------------------------------------------------------------
 
+##you had mentioned in class that this would be an easy lab and you were right!
+##this wasn't very hard at all, except I did have some trouble calling the file from the student computers,
+##but once i switched to a relative file path it was obviously much easier.
+##the turtle was fun, and i wanted to see if i would be able to fill the dinosaur with color,
+##but i had a hard time getting it right and ran out of time.
+
+##%%%%%%%%%%%##
 ##exercise 1
+##%%%%%%%%%%%##
 
 def studentData():
+	"""This function returns a list from a data file of students who have received more than 6 quiz scores."""
     fh=open("studentdata.txt","r")
     for line in fh:
         values=line.split()
@@ -24,7 +31,9 @@ def studentData():
 print("The following students have more than 6 quiz scores:")
 print(studentData())
 
+##%%%%%%%%%%%##
 ##exercise 2
+##%%%%%%%%%%%##
 
 import string
 
@@ -41,11 +50,14 @@ def dataAverage():
 
 dataAverage()
 
+##%%%%%%%%%%%##
 ##exercise 3
+##%%%%%%%%%%%##
 
 import string
 
 def dataMinMax():
+	"""This function reads a data file and returns a table of student minimum and maximum scores."""
     f=open("studentdata.txt", "r")
     print("Name\t\tMinimum\t\tMaximum")
     print("_____\t\t_______\t\t_______")
@@ -58,13 +70,19 @@ def dataMinMax():
 
 dataMinMax()
 
+##%%%%%%%%%%%##
 ##exercise 5
+##%%%%%%%%%%%##
 
 import turtle
 
 beep=turtle.Turtle()
 wn=turtle.Screen()
-wn.setworldcoordinates(-300, -300, 300, 300)
+wn.setworldcoordinates(-300, -300, 450, 300)
+wn.bgcolor("deepskyblue")
+beep.pensize(3)
+beep.pencolor("olivedrab")
+beep.fillcolor("yellowgreen")
 
 f=open("mystery.txt","r")
 
