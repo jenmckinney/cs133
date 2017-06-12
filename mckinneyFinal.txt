@@ -1,0 +1,46 @@
+def pigLatin(p):
+    littlePiggies=p.lower()
+    pigLets=littlePiggies.split()
+    pigHerd=""
+    for eachLittlePiggie in pigLets:
+        pigSnout=eachLittlePiggie[0]
+        porkRibs=eachLittlePiggie[1:]
+        wholePig=porkRibs+pigSnout+"ay "
+        pigHerd=pigHerd+wholePig
+    return pigHerd[:-1].capitalize()
+
+##piggies=input("Enter a sentence to be translated into Pig Latin:")
+piggies="Five little piggies went to market."
+
+pigTail=piggies[-1]
+porkies=piggies[:-1]
+
+print(pigLatin(porkies)+pigTail)
+
+
+
+######################################
+##my try:
+
+import string
+
+def pigLatin(t):
+    text=t.split()
+    latin=""
+    for word in text:
+        wordLower=word.lower()
+##        if wordLower.startswith('a') or wordLower.startswith('e') or wordLower.startswith('i') or wordLower.startswith('o') or wordLower.startswith('u') is FALSE:
+        pl=wordLower[1:]+wordLower[0]+"ay "
+        latin=latin+pl
+    return latin
+
+##        else:
+##            pl=wordLower[:]+"ay"
+##        print(pl)
+##    print(text)
+
+##phrase=input("Please enter a phrase you'd like to translate into Pig Latin.")
+phrase="Five little piggies went to market."
+
+
+print(pigLatin(phrase))
